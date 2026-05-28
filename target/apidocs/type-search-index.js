@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html","k":"18"},{"p":"in.maheshlangote.logdispatch.annotation","l":"LogDispatch","k":"8"},{"p":"in.maheshlangote.logdispatch","l":"LogDispatchAspect"},{"p":"in.maheshlangote.logdispatch.config","l":"LogDispatchAutoConfiguration"}];updateSearchResults();

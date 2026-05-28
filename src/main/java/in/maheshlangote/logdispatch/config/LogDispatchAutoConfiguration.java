@@ -1,0 +1,38 @@
+package in.maheshlangote.logdispatch.config;
+
+import in.maheshlangote.logdispatch.LogDispatchAspect;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.AutoConfiguration;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Bean;
+
+/**
+ * Auto-configuration class for LogDispatch.
+ * <p>
+ * This configuration automatically registers the {@link LogDispatchAspect} bean
+ * if the {@code logdispatch.enabled} property is set to true (or is missing).
+ * It dynamically injects the server URL and API key from the application properties.
+ * 
+ * @author Mahesh Langote
+ * @version 1.0.0
+ */
+@AutoConfiguration
+public class LogDispatchAutoConfiguration {
+
+    @Value("${logdispatch.server-url:http://localhost:8081/api/v1/ingest/logs}")
+    private String serverUrl;
+
+    @Value("${logdispatch.api-key:default-key}")
+    private String apiKey;
+
+    /**
+     * Creates and exposes the {@link LogDispatchAspect} bean.
+     *
+     * @return a fully configured {@link LogDispatchAspect} ready to intercept exceptions.
+     */
+    @Bean
+    @ConditionalOnProperty(name = "logdispatch.enabled", havingValue = "true", matchIfMissing = true)
+    public LogDispatchAspect logDispatchAspect() {
+        return new LogDispatchAspect(serverUrl, apiKey);
+    }
+}
