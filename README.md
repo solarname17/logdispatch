@@ -110,6 +110,25 @@ Every exception is pushed as a `POST` request to the configured `server-url`.
 
 ---
 
+## Server Health Check
+
+The starter automatically exposes a public, lightweight HTTP endpoint that your APM server can poll to check if the application is alive and calculate its total uptime.
+
+**Endpoint:** `GET /logdispatch/health`
+
+**Response (`200 OK`):**
+```json
+{
+  "status": "UP",
+  "startupTime": "2026-05-31T02:00:00.000Z",
+  "uptimeSeconds": 120
+}
+```
+
+> **Note:** To prevent abuse, this endpoint has a built-in strict rate limiter of **60 requests per minute per IP address**. Exceeding this limit will return a `429 Too Many Requests` response.
+
+---
+
 ## What Your Server Must Return
 
 Your APM ingest endpoint must comply with the following contract for the SDK to behave correctly.

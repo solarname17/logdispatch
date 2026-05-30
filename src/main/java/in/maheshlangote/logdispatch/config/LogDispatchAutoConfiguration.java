@@ -52,4 +52,16 @@ public class LogDispatchAutoConfiguration {
         registrationBean.setOrder(org.springframework.core.Ordered.HIGHEST_PRECEDENCE);
         return registrationBean;
     }
+
+    /**
+     * Creates and exposes the {@link in.maheshlangote.logdispatch.LogDispatchHealthController} bean.
+     * This controller provides a lightweight health endpoint for the APM server to poll.
+     *
+     * @return a fully configured {@link in.maheshlangote.logdispatch.LogDispatchHealthController}.
+     */
+    @Bean
+    @ConditionalOnProperty(name = "logdispatch.enabled", havingValue = "true", matchIfMissing = true)
+    public in.maheshlangote.logdispatch.LogDispatchHealthController logDispatchHealthController() {
+        return new in.maheshlangote.logdispatch.LogDispatchHealthController();
+    }
 }

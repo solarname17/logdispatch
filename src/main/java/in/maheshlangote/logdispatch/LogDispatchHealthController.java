@@ -1,0 +1,80 @@
+package in.maheshlangote.logdispatch;
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+
+/**
+ * A public controller that exposes the health and uptime of the application
+ * to the LogDispatch APM Server.
+ */
+@RestController
+@RequestMapping("/logdispatch/health")
+public class LogDispatchHealthController {
+
+    private final Instant startupTime;
+    
+    // Rate Limiting (60 requests per minute per IP)
+    private final ConcurrentHashMap<String, AtomicInteger> requestCounts = new ConcurrentHashMap<>();
+    private long currentWindowStart = System.currentTimeMillis();
+    private static final int MAX_REQUESTS_PER_MINUTE = 60;
+    private static final long WINDOW_SIZE_MS = 60000;
+
+    public LogDispatchHealthController() {
+        this.startupTime = Instant.now();
+    }
+
+    @GetMapping
+    public ResponseEntity<Map<String, Object>> healthCheck(HttpServletRequest request) {
+        String clientIp = getClientIp(request);
+        
+        if (!isAllowed(clientIp)) {
+            Map<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("status", "RATE_LIMITED");
+            errorResponse.put("message", "Too many requests. Limit is 60 requests per minute.");
+            return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(errorResponse);
+        }
+
+        long uptimeSeconds = Instant.now().getEpochSecond() - startupTime.getEpochSecond();
+
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "UP");
+        response.put("startupTime", startupTime.toString());
+        response.put("uptimeSeconds", uptimeSeconds);
+
+        return ResponseEntity.ok(response);
+    }
+    
+    private boolean isAllowed(String ip) {
+        long now = System.currentTimeMillis();
+        // Reset the window if 60 seconds have passed
+        if (now - currentWindowStart > WINDOW_SIZE_MS) {
+            synchronized (this) {
+                if (now - currentWindowStart > WINDOW_SIZE_MS) {
+                    requestCounts.clear();
+                    currentWindowStart = now;
+                }
+            }
+        }
+        
+        int count = requestCounts.computeIfAbsent(ip, k -> new AtomicInteger(0)).incrementAndGet();
+        return count <= MAX_REQUESTS_PER_MINUTE;
+    }
+
+    private String getClientIp(HttpServletRequest request) {
+        String xForwardedFor = request.getHeader("X-Forwarded-For");
+        if (xForwardedFor != null && !xForwardedFor.isEmpty()) {
+            return xForwardedFor.split(",")[0].trim();
+        }
+        return request.getRemoteAddr();
+    }
+}
