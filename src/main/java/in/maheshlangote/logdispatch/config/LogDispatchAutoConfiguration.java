@@ -19,6 +19,12 @@ import org.springframework.context.annotation.Bean;
 @AutoConfiguration
 public class LogDispatchAutoConfiguration {
 
+    /**
+     * Default constructor for auto-configuration.
+     */
+    public LogDispatchAutoConfiguration() {
+    }
+
     @Value("${logdispatch.server-url:http://localhost:8081/api/v1/ingest/logs}")
     private String serverUrl;
 

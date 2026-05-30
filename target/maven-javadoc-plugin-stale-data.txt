@@ -17,11 +17,11 @@
 -docencoding
 'UTF-8'
 -doctitle
-'LogDispatch Spring Boot Starter 1.0.1 API'
+'LogDispatch Spring Boot Starter 1.0.2 API'
 -use
 -version
 -windowtitle
-'LogDispatch Spring Boot Starter 1.0.1 API'
+'LogDispatch Spring Boot Starter 1.0.2 API'
 in.maheshlangote.logdispatch.annotation
 in.maheshlangote.logdispatch.config
 in.maheshlangote.logdispatch
@@ -62,18 +62,24 @@ C:\Users\mahes\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3
 C:\Users\mahes\.m2\repository\org\springframework\spring-aop\6.1.11\spring-aop-6.1.11.jar = 1778035309272
 C:\Users\mahes\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar = 1778035314398
 C:\Muster-Dekho\logdispatch\src\main\java = 1779986422119
-C:\Muster-Dekho\logdispatch\target\generated-sources\annotations = 1779992009210
-C:\Muster-Dekho\logdispatch\target\apidocs\allclasses-index.html = 1779992015241
-C:\Muster-Dekho\logdispatch\target\apidocs\allpackages-index.html = 1779992015244
-C:\Muster-Dekho\logdispatch\target\apidocs\element-list = 1779992015159
-C:\Muster-Dekho\logdispatch\target\apidocs\help-doc.html = 1779992015266
-C:\Muster-Dekho\logdispatch\target\apidocs\index-all.html = 1779992015257
-C:\Muster-Dekho\logdispatch\target\apidocs\index.html = 1779992015232
-C:\Muster-Dekho\logdispatch\target\apidocs\member-search-index.js = 1779992015247
-C:\Muster-Dekho\logdispatch\target\apidocs\module-search-index.js = 1779992015245
-C:\Muster-Dekho\logdispatch\target\apidocs\overview-summary.html = 1779992015262
-C:\Muster-Dekho\logdispatch\target\apidocs\overview-tree.html = 1779992015229
-C:\Muster-Dekho\logdispatch\target\apidocs\package-search-index.js = 1779992015246
-C:\Muster-Dekho\logdispatch\target\apidocs\search.html = 1779992015260
-C:\Muster-Dekho\logdispatch\target\apidocs\tag-search-index.js = 1779992015249
-C:\Muster-Dekho\logdispatch\target\apidocs\type-search-index.js = 1779992015247
+C:\Muster-Dekho\logdispatch\target\generated-sources\annotations = 1780174015413
+C:\Muster-Dekho\logdispatch\target\apidocs\allclasses-index.html = 1780174019731
+C:\Muster-Dekho\logdispatch\target\apidocs\allpackages-index.html = 1780174019735
+C:\Muster-Dekho\logdispatch\target\apidocs\copy.svg = 1780174019768
+C:\Muster-Dekho\logdispatch\target\apidocs\element-list = 1780174019634
+C:\Muster-Dekho\logdispatch\target\apidocs\help-doc.html = 1780174019759
+C:\Muster-Dekho\logdispatch\target\apidocs\index-all.html = 1780174019750
+C:\Muster-Dekho\logdispatch\target\apidocs\index.html = 1780174019719
+C:\Muster-Dekho\logdispatch\target\apidocs\link.svg = 1780174019770
+C:\Muster-Dekho\logdispatch\target\apidocs\member-search-index.js = 1780174019740
+C:\Muster-Dekho\logdispatch\target\apidocs\module-search-index.js = 1780174019737
+C:\Muster-Dekho\logdispatch\target\apidocs\overview-summary.html = 1780174019755
+C:\Muster-Dekho\logdispatch\target\apidocs\overview-tree.html = 1780174019716
+C:\Muster-Dekho\logdispatch\target\apidocs\package-search-index.js = 1780174019738
+C:\Muster-Dekho\logdispatch\target\apidocs\script.js = 1780174019767
+C:\Muster-Dekho\logdispatch\target\apidocs\search-page.js = 1780174019774
+C:\Muster-Dekho\logdispatch\target\apidocs\search.html = 1780174019753
+C:\Muster-Dekho\logdispatch\target\apidocs\search.js = 1780174019772
+C:\Muster-Dekho\logdispatch\target\apidocs\stylesheet.css = 1780174019766
+C:\Muster-Dekho\logdispatch\target\apidocs\tag-search-index.js = 1780174019741
+C:\Muster-Dekho\logdispatch\target\apidocs\type-search-index.js = 1780174019739

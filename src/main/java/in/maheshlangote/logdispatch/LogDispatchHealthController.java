@@ -29,10 +29,20 @@ public class LogDispatchHealthController {
     private static final int MAX_REQUESTS_PER_MINUTE = 60;
     private static final long WINDOW_SIZE_MS = 60000;
 
+    /**
+     * Initializes the health controller and records the startup time.
+     */
     public LogDispatchHealthController() {
         this.startupTime = Instant.now();
     }
 
+    /**
+     * Returns the health status and uptime of the application.
+     * Enforces a rate limit of 60 requests per minute per IP.
+     *
+     * @param request the HTTP request, used to determine the client IP
+     * @return a ResponseEntity containing the status, startup time, and uptime
+     */
     @GetMapping
     public ResponseEntity<Map<String, Object>> healthCheck(HttpServletRequest request) {
         String clientIp = getClientIp(request);

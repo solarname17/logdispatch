@@ -32,6 +32,12 @@ public class LogDispatchFilter extends OncePerRequestFilter {
     private final String apiKey;
     private final RestTemplate restTemplate;
 
+    /**
+     * Constructs the LogDispatchFilter.
+     *
+     * @param serverUrl the endpoint URL of the centralized APM server
+     * @param apiKey the authentication key required by the APM server
+     */
     public LogDispatchFilter(String serverUrl, String apiKey) {
         this.serverUrl = serverUrl;
         this.apiKey = apiKey;

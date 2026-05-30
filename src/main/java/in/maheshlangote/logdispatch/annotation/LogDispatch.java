@@ -18,18 +18,21 @@ public @interface LogDispatch {
     /**
      * Overrides the default affectedFeature (which is the Class name).
      * e.g., "PaymentProcessing"
+     * @return the custom feature name
      */
     String feature() default "";
 
     /**
      * Overrides the default affectedAPI (which is the HTTP path).
      * e.g., "Stripe Webhook Listener"
+     * @return the custom API name
      */
     String api() default "";
 
     /**
      * Overrides the default affectedFunction (which is the Method name).
      * e.g., "processPaymentAsync"
+     * @return the custom function name
      */
     String function() default "";
 }
