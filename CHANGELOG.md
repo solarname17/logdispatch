@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.4] - 12-06-2026
+## [1.0.4] - 2026-06-12
 ### Added
 - Added `inputInformation` to the APM log payload, capturing the request's query string, parameters, headers, and body.
 - Added strict memory protections: Request bodies are not cached if the `Content-Type` is `multipart/form-data` or if the `Content-Length` exceeds 32 KB.
