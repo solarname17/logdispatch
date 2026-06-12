@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.6] - 2026-06-12
+### Changed
+- Upgraded internal build infrastructure: Maven wrapper bumped to 3.9.8 and `maven-compiler-plugin` to 3.15.0.
+
 ## [1.0.5] - 2026-06-12
 ### Changed
 - Downgraded target Java compiler version from 21 to 17 to maximize compatibility for Spring Boot 3 projects.
